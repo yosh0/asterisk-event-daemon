@@ -1,0 +1,15 @@
+{
+   "ami" : {
+        "RemotePort" : "5038",
+        "RemoteHost" : "pbx",
+        "Username" : "",
+        "Password" : ""
+   },
+   "pg" : {
+        "DBPort" : "5432",
+        "DBHost" : "",
+        "DBUser" : "",
+        "DBPass" : "",
+        "DBName" : ""
+   }
+}
