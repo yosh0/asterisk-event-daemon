@@ -17,10 +17,10 @@ const (
     _DAEMON_NAME  = "daemon"
     _DAEMON_DESC  = "WatchHedgeHog"
     timeout       = 10 * time.Second
-	_LINE_TERM    = "\r\n"            // packet line separator
-	_KEY_VAL_TERM = ":"               // header value separator
-	_READ_BUF     = 512               // buffer size for socket reader
-	_CMD_END      = "--END COMMAND--" // Asterisk command data end
+    _LINE_TERM    = "\r\n"            // packet line separator
+    _KEY_VAL_TERM = ":"               // header value separator
+    _READ_BUF     = 512               // buffer size for socket reader
+    _CMD_END      = "--END COMMAND--" // Asterisk command data end
 )
 
 var (
