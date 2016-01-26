@@ -48,7 +48,7 @@ type Service struct {
 }
 
 func (service *Service) Manage() (string, error) {
-    usage := "Usage: myservice install | remove | start | stop | status\nconfig 'asterGo.json' should be placed in /etc/asterisk"
+    usage := "Usage: myservice install | remove | start | stop | status\nconfig 'asterisk_config.json' should be placed in /etc/asterisk"
     if len(os.Args) > 1 {
 		command := os.Args[1]
 		switch command {
