@@ -53,7 +53,7 @@ func (service *Service) Manage() (string, error) {
 		command := os.Args[1]
 		switch command {
 		case "install":
-			return service.Install()
+		return service.Install()
 		case "remove":
 	    	return service.Remove()
 		case "start":
@@ -81,11 +81,11 @@ func eventGet() {
 	for {
 		rc, err := r.Read(buf)
 		if err != nil {
-				continue
+			break
 		}
 		wb, err := pbuf.Write(buf[:rc])
 		if err != nil || wb != rc { // can't write to data buffer, just skip
-				continue
+			continue
 		}
 		for pos := bytes.Index(pbuf.Bytes(), _PT_BYTES); pos != -1; pos = bytes.Index(pbuf.Bytes(), _PT_BYTES) {
 			bp := make([]byte, pos + len(_PT_BYTES))
@@ -121,7 +121,7 @@ func eventHandler(E map[string]string) {
 }
 
 func init() {
-	file, e1 := os.Open("/etc/asterisk/asterGo.json")
+	file, e1 := os.Open("/etc/asterisk/asterisk_config.json")
 	if e1 != nil {
 		fmt.Println("Error:	", e1)
 	}
@@ -157,7 +157,7 @@ func main() {
 }
 
 func Logger(s map[string]string) {
-  	tf := timeFormat()
+  	tf := timeNow()
   	f, _ := os.OpenFile("/var/log/asterisk/custom.log", os.O_WRONLY|os.O_CREATE|os.O_APPEND, 0666)
  	log.SetOutput(f)
   	log.Print(tf)
@@ -165,7 +165,7 @@ func Logger(s map[string]string) {
   	fmt.Println(s)
 }
 
-func timeFormat() (string) {
+func timeNow() (string) {
 	t := time.Now()
   	tf := fmt.Sprintf("%d-%02d-%02d %02d:%02d:%02d\n", t.Year(), t.Month(), t.Day(), t.Hour(), t.Minute(), t.Second())
   	return tf
